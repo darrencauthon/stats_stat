@@ -1,5 +1,5 @@
-require "stats_stat/version"
+require_relative "stats_stat/tracker"
+require_relative "stats_stat/version"
 
 module StatsStat
-  # Your code goes here...
 end
