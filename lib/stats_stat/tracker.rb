@@ -5,7 +5,7 @@ module StatsStat
     end
     
     def track the_event
-      @data_source.record_event :the_special_event
+      @data_source.record_event the_event
     end
   end
 end
