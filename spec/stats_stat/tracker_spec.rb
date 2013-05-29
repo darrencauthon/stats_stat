@@ -12,7 +12,7 @@ describe StatsStat::Tracker do
       describe "tracking an event" do
 
         before do
-          data_source.expects(:record_event).with(the_event)
+          data_source.expects(:record_event).with(the_event, { created_at: Time.parse('2013/1/4') } )
 
           tracker.track the_event
         end 
