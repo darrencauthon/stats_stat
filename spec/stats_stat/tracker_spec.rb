@@ -4,7 +4,10 @@ describe StatsStat::Tracker do
 
   let(:tracker) { StatsStat::Tracker.new data_source }
 
-  [:the_special_event, :another_event].each do |the_event|
+  [:event, :now].to_objects {[
+    [:the_special_event, Time.parse('2013/1/4')],
+    [:another_event,     Time.parse('2013/1/4')]
+  ]}.each do |test|
     describe "with a valid data source" do
 
       let(:data_source) { mock() }
@@ -12,9 +15,9 @@ describe StatsStat::Tracker do
       describe "tracking an event" do
 
         before do
-          data_source.expects(:record_event).with(the_event, { created_at: Time.parse('2013/1/4') } )
+          data_source.expects(:record_event).with(test.event, { created_at: test.now } )
 
-          tracker.track the_event
+          tracker.track test.event
         end 
 
         it "should send the event to the data source" do
