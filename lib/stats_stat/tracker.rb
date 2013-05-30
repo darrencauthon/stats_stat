@@ -5,7 +5,7 @@ module StatsStat
     end
     
     def track the_event
-      @data_source.record_event(the_event, { :created_at => Time.parse('2013/1/4') } )
+      @data_source.record_event(the_event, { :created_at => Time.now } )
     end
   end
 end
