@@ -4,8 +4,12 @@ module StatsStat
       @data_source = data_source
     end
     
-    def track the_event
-      @data_source.record_event(the_event, { :created_at => Time.now } )
+    def track(the_event, the_data = nil)
+      unless(the_data.nil?)
+        @data_source.record_event(the_event, { :created_at => Time.now, :data => { :some => 'data' } } )
+      else
+        @data_source.record_event(the_event, { :created_at => Time.now } )
+      end
     end
   end
 end
