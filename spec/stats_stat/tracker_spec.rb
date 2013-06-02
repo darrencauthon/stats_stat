@@ -34,9 +34,10 @@ describe StatsStat::Tracker do
     end
 
     [:event, :now, :data].to_objects {[
-      [:the_special_event, Time.parse('2013/1/4'), { some: 'data' } ]
+      [:the_special_event, Time.parse('2013/1/4'), { some: 'data' } ],
+      [:another_event, Time.parse('2014/12/30'), { hello: 'world', my: 'name is' } ]
     ]}.each do |test|
-      describe "with a valid data source, but no data" do
+      describe "with a valid data source, but with data" do
 
         let(:data_source) { mock() }
 
