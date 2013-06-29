@@ -1,4 +1,6 @@
 module StatsStat
+  class Reporter
+  end
   class Tracker
     def initialize(data_source)
       @data_source = data_source
